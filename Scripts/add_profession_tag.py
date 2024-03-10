@@ -24,32 +24,35 @@ def find_tags(text, tag_prefixes):
 
 
 # Specify for partially cleaned CSV files
-folderpath = "C:/Users/Earl/Documents/Womens month cvs/partially-manually cleaned"
-for csv_file_path in glob.glob(folderpath + "/*.csv"):
+input_folder = "C:/Users/Earl/Documents/womens_month/step3_professions_added"
+output_folder="C:/Users/Earl/Documents/womens_month/step4_profession_tags_added"
+
+for xlsx_file_path in glob.glob(input_folder + "/*.xlsx"):
+    # Load Excel data into a DataFrame
+    df = pd.read_excel(xlsx_file_path)
+    base_filename = os.path.basename(xlsx_file_path)
     
-    # Load CSV data into a DataFrame
-    df = pd.read_csv(csv_file_path, encoding='ISO-8859-1')
-    base_filename=os.path.basename(csv_file_path)
-    print(base_filename)
     
     # Create a new "Tags" column in the DataFrame
     df["Tags"] = ""
 
-     # Output the predicted profession tags
+    # Output the predicted profession tags
     for index, row in df.iterrows():
-        
-     cell_text=str(row["Notes"])
+        cell_text = str(row["Notes"])
 
-     matched_tags= find_tags(cell_text,tag_prefixes)
-     print("matched tags are:"+str(matched_tags))
-     if matched_tags:
-        df.at[index,"Tags"]=", ".join(matched_tags)
-     else:
-        df.at[index,"Tags"]="other"
-    output_csv_path = f"{folderpath}/{base_filename}" 
-    df.to_csv(output_csv_path, index=False)
-    print(f"Processed: {csv_file_path}, Output CSV: {output_csv_path}")    
-print("All CSV files processed.")
+        matched_tags = find_tags(cell_text, tag_prefixes)
+       
+        if matched_tags:
+            df.at[index, "Tags"] = ", ".join(matched_tags)
+        else:
+            df.at[index, "Tags"] = "other"
+
+    output_excel_path = os.path.join(output_folder, f"{base_filename[:-5]}-tags_added.xlsx")
+    df.to_excel(output_excel_path, index=False)
+    print(f"Processed: {base_filename}")
+
+print("All Excel files processed.")
+
 
 # for file in input_folder
 #  df= file 

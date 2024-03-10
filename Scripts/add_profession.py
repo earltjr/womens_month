@@ -2,7 +2,7 @@ import pandas as pd
 import glob
 from professions import professions
 import os
-
+import openpyxl
 
 professions=list(set(professions))
 
@@ -12,18 +12,17 @@ def find_professions(text, professions):
     return [prof for prof in professions if prof.lower() in text.lower()]
 
 # Specify input folder containing CSV files
-input_folder = "C:/Users/Earl/Documents/Womens month cvs/uncleaned"
+input_folder = "C:/Users/Earl/Documents/womens_month/step2_cvs_to_xlsx"
 
 # Specify output folder for cleaned CSV files
-output_folder = "C:/Users/Earl/Documents/Womens month cvs/partially-manually cleaned"
+output_folder = "C:/Users/Earl/Documents/womens_month/step3_professions_added"
 
 # Iterate through all CSV files in the input folder
-for csv_file_path in glob.glob(input_folder + "/*.csv"):
+for xlsx_file_path in glob.glob(input_folder + "/*.xlsx"):
     # Load CSV data into a DataFrame
-    df = pd.read_csv(csv_file_path, encoding='ISO-8859-1')
-    base_filename=os.path.basename(csv_file_path)
-    print(base_filename)
-    
+    df = pd.read_excel(xlsx_file_path)
+    base_filename=os.path.basename(xlsx_file_path)
+   
     # Output the predicted profession(s)
     for index, row in df.iterrows():
         # Get the text from column D
@@ -39,9 +38,9 @@ for csv_file_path in glob.glob(input_folder + "/*.csv"):
             df.at[index, "Field(s)"] = "Other"
 
     # Save the updated DataFrame to a new CSV file in the output folder
-    output_csv_path = os.path.join(output_folder, f"{base_filename[:-4]}-partially_cleaned.csv")
+    output_excel_path = os.path.join(output_folder, f"{base_filename[:-5]}-profs_added.xlsx")
 
-    df.to_csv(output_csv_path, index=False)
-    print(f"Processed: {csv_file_path}, Output CSV: {output_csv_path}")
+    df.to_excel(output_excel_path, index=False)
+    print(f"Processed: {base_filename}")
 
-print("All CSV files processed.")
+print("All Excel files processed.")
