@@ -1,4 +1,4 @@
-# professions_list.py
+# Professions Variable that contains an extensive list of STEM fields
 professions = [
     # A
     "Astrophysicist", "Agronomist", "Architect", "Aerospace Engineer", "Actuary",

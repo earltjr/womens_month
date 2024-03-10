@@ -1,13 +1,10 @@
 import pandas as pd
-import spacy
 import glob
 from profession_tag import tag_prefixes
 import os
-# figure out how to use tag_prefixes
-#professions=list(set(professions))
-# Load language model
-nlp = spacy.load("en_core_web_lg")
 
+
+#function that checks a string to see if it has substrings that match the professions_tag variable
 def find_tags(text, tag_prefixes):
     # Check if the input text is a string
     if not isinstance(text, str):
@@ -23,7 +20,7 @@ def find_tags(text, tag_prefixes):
     return matched_tags
 
 
-# Specify for partially cleaned CSV files
+# Specify input and output folder where input folder is where the file of interest is and the output where the modified file will go
 input_folder = "C:/Users/Earl/Documents/womens_month/step3_professions_added"
 output_folder="C:/Users/Earl/Documents/womens_month/step4_profession_tags_added"
 
@@ -52,12 +49,3 @@ for xlsx_file_path in glob.glob(input_folder + "/*.xlsx"):
     print(f"Processed: {base_filename}")
 
 print("All Excel files processed.")
-
-
-# for file in input_folder
-#  df= file 
-#     for every cell in df
-#    check if cell contain any prefixes 
-#     if yes return that return the name of that dictionary do not add again for every isinstance
-#     next cell
-#  save file in output_folder as same name

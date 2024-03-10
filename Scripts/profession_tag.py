@@ -1,3 +1,4 @@
+#Profession tag variable contains prefixes and substrings associated with specific fields of interest
 tag_prefixes = {
     "Medicine": [
         'medi', 'adipo', 'adren', 'auro', 'cerebro', 'cardio', 'chole', 'cholo', 'colo',
@@ -41,6 +42,6 @@ tag_prefixes = {
     "Explorers": ['explorer', 'antartic', 'adventure', 'mountaineer', 'diver', 'arctic', 'expedition','aviator','skier'],
 
     "inventors": ['inventor', 'patent', 'developer', 'creator', 'cofound', 'co-found','creating', 'maker'],
-    
+
     "writers":['writer','author','essayist','wrote']
 }
