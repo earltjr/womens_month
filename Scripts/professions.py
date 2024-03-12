@@ -10,7 +10,7 @@ professions = [
     "Bioinformatics Specialist", "biologist","bacteriologist","bioarcheologist",
     
     # C
-    "Chemical Engineer", "Computer Scientist", "Civil Engineer", "Cybersecurity Analyst",
+    "Chemical Engineer", "Computer Scientist", "Civil Engineer", "Cybersecurity Analyst", "Cosmetic Scientist",
     "Cartographer", "Cardiovascular Surgeon", "Clinical Psychologist", "Computational Biologist", "climate scientist","chemist","cryptogamist","conservationist",
     
     # D

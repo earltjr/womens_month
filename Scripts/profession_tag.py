@@ -18,7 +18,7 @@ tag_prefixes = {
     "Earth Science": ['earth', 'geo', 'hydro', 'atmo', 'paleo', 'seismo', 'antartic', 'meteor', 'glacio', 'polar ice', 'Palyn', 'archaeo', 'anthro',
                      'ocean', 'Egyptol','sedim','sea ice','ice sheet','naturalist','agronomist','horticultur','natural hist','garden','mineral'],
 
-    "Chemistry": ['chem', 'bio', 'inorga', 'orga', 'pharmaco', 'physico'],
+    "Chemistry": ['chem', 'bio', 'inorga', 'orga', 'pharmaco', 'physico','cosmetic'],
 
     "Biology": ['bio', 'eco', 'micro', 'mol', 'neuro', 'viro', 'anato', 'zoo', 'bacterio', 'botan', 'plants', 'plankton', 'gene', 'patho','Herpe',
                 'genomic','arachno','ornith','etho','taxo'],
